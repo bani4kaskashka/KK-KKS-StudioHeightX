@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Build with: dotnet build -c Release -p:GameTarget=KK   (or KKS) -->
+    <GameTarget Condition="'$(GameTarget)' == ''">KK</GameTarget>
+    <TargetFramework Condition="'$(GameTarget)' == 'KK'">net35</TargetFramework>
+    <TargetFramework Condition="'$(GameTarget)' == 'KKS'">net46</TargetFramework>
+    <AssemblyName>$(GameTarget)_StudioHeight</AssemblyName>
+    <RootNamespace>StudioHeight</RootNamespace>
+    <Version>1.0.0</Version>
+    <LangVersion>9</LangVersion>
+    <DebugType>none</DebugType>
+    <DefineConstants>$(DefineConstants);$(GameTarget)</DefineConstants>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>bin/$(GameTarget)/</OutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>../../lib/$(GameTarget)/BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>../../lib/$(GameTarget)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>../../lib/$(GameTarget)/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>../../lib/$(GameTarget)/Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>../../lib/$(GameTarget)/UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>../../lib/$(GameTarget)/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(GameTarget)' == 'KK'">
+    <Reference Include="KKAPI">
+      <HintPath>../../lib/KK/KKAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(GameTarget)' == 'KKS'">
+    <Reference Include="KKSAPI">
+      <HintPath>../../lib/KKS/KKSAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>../../lib/KKS/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>../../lib/KKS/UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>../../lib/KKS/UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

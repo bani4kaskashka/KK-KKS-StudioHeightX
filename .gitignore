@@ -1,0 +1,15 @@
+# Game DLLs are copyrighted, never commit them
+lib/
+
+# Build output
+bin/
+obj/
+
+# Local-only helpers
+deploy.sh
+
+# Anything Claude related stays local
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.claude*
