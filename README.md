@@ -8,7 +8,7 @@ I made this because HeightBar only works in the maker, and Studio is exactly the
 Molly - Base 140.0 cm | Scaled 210.0 cm (150%)
 ```
 
-If the character isn't scaled you just get the plain height. Updates live while you drag sliders, bones or the scale gizmo. Nothing selected = nothing shown.
+If the character isn't scaled you just get the plain height. It updates live while you drag sliders, bones or the scale gizmo, and disappears when nothing is selected.
 
 Works with Koikatsu / Koikatsu Party and Koikatsu Sunshine.
 
@@ -29,7 +29,9 @@ Grab the right DLL and drop it in `BepInEx/plugins`:
 
 ## Where the numbers come from
 
-The cm conversion is lifted straight from [ManlyMarco's HeightBar Plugin](https://github.com/ManlyMarco/Illusion_HeightBar) (distance from the character's root to the measure point, times 103.09278). The difference is that HeightBarX makes you line a bar up with the head by hand, while this uses the game's own head-top accessory attach point (`a_n_headtop`), so it's automatic and hair doesn't count. Base height is measured in the character's local space so Studio scaling doesn't touch it, scaled height is the same thing times the actual world scale.
+The cm conversion is lifted straight from [ManlyMarco's HeightBar Plugin](https://github.com/ManlyMarco/Illusion_HeightBar): distance from the character's root to the measure point, times 103.09278. The difference is that HeightBarX makes you line a bar up with the head by hand, while this uses the game's own head-top accessory attach point (`a_n_headtop`), so it's automatic and hair doesn't count.
+
+Base height is measured in the character's local space, which is why Studio scaling doesn't touch it. Scaled height is the same thing times the actual world scale.
 
 ## Stuff to know
 
@@ -46,6 +48,12 @@ cd src/StudioHeight
 dotnet build -c Release -p:GameTarget=KK
 dotnet build -c Release -p:GameTarget=KKS
 ```
+
+## The XMods
+
+- [KK_PerspectiveX](https://github.com/bani4kaskashka/KK_PerspectiveX): first-person POV that doesn't clip through the body and doesn't make you dizzy
+- [StudioHeightX](https://github.com/bani4kaskashka/KK-KKS-StudioHeightX): live height readout for the selected Studio character (this one)
+- [PerceptiveHeightX](https://github.com/bani4kaskashka/PerceptiveHeightX): POV size-perception add-on for PerspectiveX
 
 ## My links
 
