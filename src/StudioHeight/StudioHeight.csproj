@@ -7,7 +7,7 @@
     <TargetFramework Condition="'$(GameTarget)' == 'KKS'">net46</TargetFramework>
     <AssemblyName>$(GameTarget)_StudioHeight</AssemblyName>
     <RootNamespace>StudioHeight</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <LangVersion>9</LangVersion>
     <DebugType>none</DebugType>
     <DefineConstants>$(DefineConstants);$(GameTarget)</DefineConstants>
